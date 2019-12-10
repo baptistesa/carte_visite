@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,9 @@ export class HomePage {
 
   user_array = [];
 
-  constructor(private barcodeScanner: BarcodeScanner) { }
+  constructor(private barcodeScanner: BarcodeScanner, private router : Router) {
+    this.user_array = JSON.parse(localStorage.getItem("users"))
+  }
 
 
   // Launch QRCode scanner
@@ -31,6 +34,16 @@ export class HomePage {
     }).catch(err => {
       console.log('Error', err);
     });
+  }
+
+  // Go to details page
+  goToDetails(user) {
+    let params : NavigationExtras = {
+      state: {
+        user : user
+      }
+    }
+    this.router.navigate(["/"], params)
   }
 
 }

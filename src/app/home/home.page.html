@@ -15,7 +15,7 @@
 
 
   <ion-list *ngIf="user_array && user_array.length != 0">
-    <ion-card class="contact" *ngFor="let user of user_array">
+    <ion-card class="contact" *ngFor="let user of user_array" (click)="goToDetails(user)">
       <ion-card-content>
         {{ user.prenom }} {{ user.nom }}
       </ion-card-content>

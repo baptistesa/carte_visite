@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="user">
+    <p>{{ user.prenom }}</p>
+    <p>{{ user.nom }}</p>
+    <p>{{ user.mail }}</p>
+    <p>{{ user.tel }}</p>
+    <p>{{ user.entreprise }}</p>
+  </div>
+</ion-content>
