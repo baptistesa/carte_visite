@@ -1,5 +1,7 @@
 {
   "name": "carte_visite",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

@@ -3,25 +3,47 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>
-      List
-    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let item of items">
-      <ion-icon [name]="item.icon" slot="start"></ion-icon>
-      {{item.title}}
-      <div class="item-note" slot="end">
-        {{item.note}}
-      </div>
-    </ion-item>
-  </ion-list>
-  <!--
-    <div *ngIf="selectedItem" padding>
-      You navigated here from <b>{{selectedItem.title }}</b>
+
+  <div class="title">
+    <h1>Mon profil</h1>
+    <p>Mes informations</p>
+
+    <div *ngIf="user">
+
+      <ion-item class="my_item">
+        <ion-label position="floating" class="my_label">Prénom</ion-label>
+        <ion-input [(ngModel)]="user.prenom"></ion-input>
+      </ion-item>
+      <ion-item class="my_item">
+        <ion-label position="floating" class="my_label">Nom</ion-label>
+        <ion-input [(ngModel)]="user.nom"></ion-input>
+      </ion-item>
+      <ion-item class="my_item">
+        <ion-label position="floating" class="my_label">Adresse mail</ion-label>
+        <ion-input [(ngModel)]="user.mail"></ion-input>
+      </ion-item>
+      <ion-item class="my_item">
+        <ion-label position="floating" class="my_label">Numéro de téléphone</ion-label>
+        <ion-input [(ngModel)]="user.tel"></ion-input>
+      </ion-item>
+      <ion-item class="my_item">
+        <ion-label position="floating" class="my_label">Entreprise</ion-label>
+        <ion-input [(ngModel)]="user.entreprise"></ion-input>
+      </ion-item>
+
     </div>
-  -->
+
+    <div style="text-align: center; margin-top: 25rem;">
+      <ion-button style="text-align: center;" (click)="validate()">
+        Enregistrer
+      </ion-button>
+    </div>
+  </div>
+
+  <ngx-qrcode [qrc-value]="user_stringified" [qrc-version]=8 [qrc-correction-level]="'L'"
+    style="margin-top: 10%; text-align: center;"></ngx-qrcode>
 </ion-content>

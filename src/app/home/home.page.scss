@@ -1,4 +1,25 @@
-.welcome-card img {
-  max-height: 35vh;
-  overflow: hidden;
+.header-ios ion-toolbar:last-child {
+  --border-width: 0;
+}
+
+.title {
+  h1 {
+    margin-left: 15%;
+    margin-bottom: 0;
+    font-family: 'Raleway';
+    font-weight: bold;
+  }
+
+  p {
+    margin-left: 15%;
+    margin-top: 0;
+    font-family: 'Raleway';
+    font-weight: lighter;
+  }
+}
+
+.contact {
+  width: 85%;
+  float: right;
+  margin-bottom: 0;
 }

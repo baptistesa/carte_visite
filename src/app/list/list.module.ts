@@ -6,11 +6,14 @@ import { RouterModule } from '@angular/router';
 
 import { ListPage } from './list.page';
 
+import { NgxQRCodeModule } from 'ngx-qrcode3';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    NgxQRCodeModule,
     RouterModule.forChild([
       {
         path: '',

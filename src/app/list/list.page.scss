@@ -1,1 +1,28 @@
+.header-ios ion-toolbar:last-child {
+  --border-width: 0;
+}
 
+.title {
+  h1 {
+    margin-left: 15%;
+    margin-bottom: 0;
+    font-family: "Raleway";
+    font-weight: bold;
+  }
+
+  p {
+    margin-left: 15%;
+    margin-top: 0;
+    font-family: "Raleway";
+    font-weight: lighter;
+  }
+}
+
+.my_item {
+    width: 90%;
+    float: right;
+}
+
+.my_label {
+    color: gray;
+}

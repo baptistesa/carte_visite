@@ -1,12 +1,36 @@
 import { Component } from '@angular/core';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  styleUrls: ['home.page.scss']
 })
 export class HomePage {
 
-  constructor() {}
+  user_array = [];
+
+  constructor(private barcodeScanner: BarcodeScanner) { }
+
+
+  // Launch QRCode scanner
+  scan() {
+    this.barcodeScanner.scan().then(barcodeData => {
+      let user = JSON.parse(barcodeData.text);
+      if (!localStorage.getItem("users") || localStorage.getItem("users") == "") {
+        this.user_array = [
+        ];
+        this.user_array.push(user);
+        localStorage.setItem("users", JSON.stringify(this.user_array));
+      }
+      else {
+        this.user_array = JSON.parse(localStorage.getItem("users"));
+        this.user_array.push(user);
+        localStorage.setItem("users", JSON.stringify(this.user_array))
+      }
+    }).catch(err => {
+      console.log('Error', err);
+    });
+  }
 
 }

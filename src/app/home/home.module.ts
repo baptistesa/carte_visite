@@ -5,8 +5,13 @@ import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+
 
 @NgModule({
+  providers : [
+    BarcodeScanner
+  ],
   imports: [
     CommonModule,
     FormsModule,
